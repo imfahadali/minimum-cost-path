@@ -1,5 +1,12 @@
 function findLowestCostPath(airports, departure, arrival) {
-    // Step 1: Build the graph (Adjacency List)
+    if (isValid(airports, departure, arrival) !== true) {
+        throw new Error("Invalid Input.")
+    }
+
+    if (airports.length == 0) {
+
+    }
+
     const graph = {};
     airports.forEach(flight => {
         const { start, end, cost } = flight;
@@ -44,6 +51,10 @@ function findLowestCostPath(airports, departure, arrival) {
     }
 
     throw new Error("No Flight found for the given source and destination.")
+}
+
+function isValid(airports, departure, arrival) {
+    return departure !== '' && arrival !== '' && Array.isArray(airports);
 }
 
 module.exports = { findLowestCostPath };

@@ -137,4 +137,25 @@ describe('findLowestCostPath', () => {
         expect(result.path).toEqual(['ISB', 'CBS', 'NYC']);
         expect(result.cost).toBe(1350);
     });
+
+    test('Test Case 12', () => {
+        const airports = ""
+        expect(() => {
+            findLowestCostPath(airports, 'A', 'E');
+        }).toThrow("Invalid Input.");
+    })
+
+    test('Test Case 13', () => {
+        const airports = []
+        expect(() => {
+            findLowestCostPath(airports, 'A', 'E');
+        }).toThrow("No Flight found for the given source and destination.");
+    })
+
+    test('Test Case 14', () => {
+        const airports = []
+        expect(() => {
+            findLowestCostPath(airports, '', '');
+        }).toThrow("Invalid Input.");
+    })
 });
